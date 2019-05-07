@@ -3,6 +3,9 @@ const cors = require('cors');
 const db = require('../data/dbConfig.js');
 const server = express();
 
+const usersRouter = require('./users/usersRouter');
+const recipesRouter = require('./recipes/recipesRouter');
+
 server.use(cors());
 server.use(express.json());
 
