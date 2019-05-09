@@ -1,10 +1,9 @@
 const localPgConnection = {
-    host: '127.0.0.1',
-    database: 'postgres',
+    host: 'localhost',
+    database: 'app',
     user: 'admin',
-    password: 'password',
-    port: '5432'
-}
+    password: 'password'
+  }
 const prodDbConnection = process.env.DATABASE_URL || localPgConnection;
 
 

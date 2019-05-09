@@ -19,7 +19,7 @@ server.get('/', (req, res) => {
 
 server.post('/test', (req, res) => {
     console.log('req', req.body)
-    res.send('Hello World!');
+    res.send('Hello World test!');
 });
 
 module.exports = server;
