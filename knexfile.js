@@ -13,7 +13,7 @@ module.exports = {
     development: {
         client: 'sqlite3',
         connection: {
-            filename: './data/intercomAppDevelopmentDB.sqlite3'
+            filename: './data/lacocinaDevelopmentDB.sqlite3'
         },
         useNullAsDefault: true,
         migrations: {
