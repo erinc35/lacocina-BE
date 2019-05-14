@@ -5,21 +5,14 @@ exports.up = function (knex, Promise) {
         // user id (primary key)
         tbl.increments(); // creates an id (if you don't pass anything here the default name of the column will be 'id'), makes it integer, makes it autoincrement
 
-        //user stripeId
-        tbl
-            .string('stripeId', 128)
-            .defaultTo(null)
-        // .notNullable()      // commented out to avoid having to assign unique id to mockUsers seed file
-        // .unique()
-
         //user avatar
         tbl
-            .string('avatar', 256)
+            .string('picture', 256)
             .defaultTo(null)
 
         //user display name
         tbl
-            .string('displayName', 128)
+            .string('nickname', 128)
             .notNullable()
 
         //user email

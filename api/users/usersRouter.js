@@ -19,6 +19,7 @@ router.post('/', checkUser, async (req, res) => {
         email: req.body.email,
         avatar: req.body.picture
     }
+    // consol
     try {
         const newUser = await usersModel.addUser(user);
         res.status(201).json(newUser)
