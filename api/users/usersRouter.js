@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const usersModel = require('./usersModel');
+const userRecipes = require('./userRecipes/userRecipesRouter');
 
 
 // api/users
@@ -76,6 +77,11 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.use('/:id/recipes', function (req, res, next) {
+    req.userId = req.params.id;
+    next()
+}, userRecipes);
 
 
 module.exports = router;
