@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', checkRecipe, async (req, res) => {
     let recipe = req.body;
     try {
         const newRecipe = await recipesModel.addRecipe(recipe);
@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
 
 function checkRecipe(req, res, next) {
     const {name} = req.body
-    recipesModel.getRecipeByEmail(email)
+    recipesModel.getRecipeByName(name)
         .then(foundRecipe => {
             if (foundRecipe === undefined) {
                 next();
