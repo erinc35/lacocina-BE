@@ -15,13 +15,11 @@ module.exports = {
         return db('recipes').where({ id }).first();
     },
 
-    updateRecipe: function (id, changes) {
-        return db('recipes')
-            .where({ id })
-            .update(changes)
-            .then(count => (count > 0 ? this.getRecipeByID(id) : null));
+    getRecipeByName: function (name) {
+        return db('recipes').where({ name }).first()
     },
 
+   
     deleteRecipe: function (id) {
         return db('recipes').where({ id }).del();
     },

@@ -24,6 +24,22 @@ router.post('/', async (req, res) => {
     }
 });
 
+function checkRecipe(req, res, next) {
+    const {name} = req.body
+    recipesModel.getRecipeByEmail(email)
+        .then(foundRecipe => {
+            if (foundRecipe === undefined) {
+                next();
+            } else {
+                res.status(200).json(foundRecipe);
+                return
+            }
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        })
+}
+
 // api/recipes/:id
 
 router.get('/:id', async (req, res) => {
