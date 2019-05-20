@@ -2,7 +2,7 @@ const db = require('../../../data/dbConfig.js');
 
 module.exports = {
 
-    getRecipes: function (recipeId) {
+    getRecipeOwners: function (recipeId) {
 
         return db('usersRecipes')
             .select(
