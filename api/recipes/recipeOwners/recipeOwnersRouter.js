@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
     let id = req.recipeId;
     try {
         const owners = await recipesModel.getrecipeOwners(id);
+        console.log(owners)
         res.status(200).json(owners);
     } catch (err) {
         res.status(500).json(err);
