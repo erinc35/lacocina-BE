@@ -11,6 +11,9 @@ module.exports = {
         )
             .where({ userId })
             .join('recipes', 'usersRecipes.recipeId', 'recipes.id')
-    }
+    },
+
+    getRecipesByName: function (name) {
+        return db('recipes').where({ name }).first()
 
 };
