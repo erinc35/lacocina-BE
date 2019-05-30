@@ -14,4 +14,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+function checkRecipe(req, res, next) {
+    const name = req.body.name
+    usersModel.getRecipeByName(name)
+        .then(foundRecipe => {
+            if (foundRecipe === undefined) {
+                next();
+            } else {
+                res.status(200).json(foundRecipe);
+                return
+            }
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        })
+}
+
 module.exports = router;

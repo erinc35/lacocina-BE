@@ -13,7 +13,7 @@ module.exports = {
             .join('recipes', 'usersRecipes.recipeId', 'recipes.id')
     },
 
-    getRecipesByName: function (name) {
+    getRecipeByName: function (name) {
         return db('recipes').where({ name }).first()
-
+    }
 };
