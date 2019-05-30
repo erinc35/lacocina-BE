@@ -15,6 +15,10 @@ module.exports = {
 
     },
 
+    getRecipeByName: function (name) {
+        return db('recipes').where({ name }).first()
+    },
+
     addRecipeOwner: async function (owner) {
         await db('usersRecipes').insert(owner);
         return this.getRecipeOwners(owner.recipeId)

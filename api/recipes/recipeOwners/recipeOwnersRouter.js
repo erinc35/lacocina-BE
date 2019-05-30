@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+// const usersModel = require('../../users/userRecipes/userRecipesModel');
 const recipesModel = require('./recipeOwnersModel');
 
 // api/recipes/:id/recipeOwners
@@ -14,6 +14,23 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+function checkRecipe(req, res, next) {
+    const name = req.body.name
+    console.log(req.body)
+    recipesModel.getRecipeByName(name)
+        .then(foundRecipe => {
+            if (foundRecipe === undefined) {
+                next();
+            } else {
+                res.status(200).json(foundRecipe);
+                return
+            }
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        })
+}
 
 
 router.post('/', async (req, res) => {

@@ -18,13 +18,13 @@ router.post('/', checkUser, async (req, res) => {
     const user = {
         displayName: req.body.nickname,
         email: req.body.email,
-        avatar: req.body.picture
+        picture: req.body.picture
     }
-    // consol
     try {
         const newUser = await usersModel.addUser(user);
         res.status(201).json(newUser)
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 })

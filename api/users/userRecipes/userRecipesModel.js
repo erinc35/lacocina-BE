@@ -15,5 +15,7 @@ module.exports = {
 
     getRecipeByName: function (name) {
         return db('recipes').where({ name }).first()
-    }
+    },
+
+    
 };

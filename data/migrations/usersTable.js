@@ -12,7 +12,7 @@ exports.up = function (knex, Promise) {
 
         //user display name
         tbl
-            .string('nickname', 128)
+            .string('displayName', 128)
             .notNullable()
 
         //user email
