@@ -7,8 +7,8 @@ const recipesModel = require('./recipeOwnersModel');
 router.get('/', async (req, res) => {
     let id = req.recipeId;
     try {
-        const owners = await recipesModel.getrecipeOwners(id);
-        console.log(owners)
+        const owners = await recipesModel.getRecipeOwners(id);
+        // console.log(owners)
         res.status(200).json(owners);
     } catch (err) {
         res.status(500).json(err);
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
 function checkRecipe(req, res, next) {
     const name = req.body.name
-    console.log(req.body)
+    // console.log(req.body)
     recipesModel.getRecipeByName(name)
         .then(foundRecipe => {
             if (foundRecipe === undefined) {
@@ -49,10 +49,12 @@ router.post('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     let recipeId = req.recipeId;
     let userId = req.params.id;
+    
     try {
-        const updatedRecipe = await recipesModel.deleteRecipeOwner(userId, recipeId);
-        res.status(200).json(updatedRecipe);
+        const deletedRecipe = await recipesModel.deleteRecipeOwner(userId, recipeId);
+        res.status(200).json(deletedRecipe);
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 });

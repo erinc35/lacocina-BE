@@ -67,6 +67,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     const id = req.params.id;
+    console.log('recipesRouter', id)
     try {
         const count = await recipesModel.deleteRecipe(id);
         res.status(200).json({ count: `${count} recipe deleted` });

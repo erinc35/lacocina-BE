@@ -26,7 +26,8 @@ module.exports = {
 
     deleteRecipeOwner: async function (userId, recipeId) {
         await db('usersRecipes').where({ userId, recipeId }).del();
-        return this.getRecipes(recipeId)
+        return this.getRecipeOwners(recipeId)
+        // return {"bok": "bok"}
     },
 
 };
