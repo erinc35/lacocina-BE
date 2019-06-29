@@ -7,6 +7,9 @@ module.exports = {
         return db('usersRecipes')
             .select(
                 'usersRecipes.recipeId',
+                'usersRecipes.recipeImage',
+                'usersRecipes.recipeURL',
+                'usersRecipes.recipeCalories',
                 'usersRecipes.userId',
                 'users.displayName',
         )
