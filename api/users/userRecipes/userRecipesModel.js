@@ -15,7 +15,7 @@ module.exports = {
                 
         )
             .where({ userId })
-            .join('recipes', 'usersRecipes.recipeId', 'recipes.id')
+            .join('recipes', 'usersRecipes.recipeId', 'recipes.id', 'recipes.image', 'recipes.url', 'recipes.calories')
     },
 
     getRecipeByName: function (name) {
