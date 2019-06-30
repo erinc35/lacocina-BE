@@ -7,14 +7,11 @@ module.exports = {
         return db('usersRecipes')
             .select(
                 'usersRecipes.recipeId',
-                'usersRecipes.recipeImage',
-                'usersRecipes.recipeUrl',
-                'usersRecipes.recipeCalories',
                 'usersRecipes.userId',
                 'users.displayName',
         )
             .where({ recipeId })
-            .join('users', 'usersRecipes.userId', 'usersRecipes.recipeImage', 'usersRecipes.recipeUrl', 'usersRecipes.recipeCalories','users.id')
+            .join('users', 'usersRecipes.userId', 'users.id')
 
     },
 

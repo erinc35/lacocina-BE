@@ -7,15 +7,12 @@ module.exports = {
         return db('usersRecipes')
             .select(
                 'usersRecipes.recipeId',
-                'recipes.name as recipeName',
+                'recipes.name as RecipeName',
                 'recipes.image as recipeImage',
-                'recipes.url as recipeUrl',
-                'recipes.calories as recipeCalories',
-                
                 
         )
             .where({ userId })
-            .join('recipes', 'usersRecipes.recipeId', 'recipes.id', 'recipes.image', 'recipes.url', 'recipes.calories')
+            .join('recipes', 'usersRecipes.recipeId', 'recipes.id')
     },
 
     getRecipeByName: function (name) {
