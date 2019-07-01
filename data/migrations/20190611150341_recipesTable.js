@@ -24,7 +24,10 @@ exports.up = function (knex, Promise) {
         //createdAt
         tbl
             .timestamp('createdAt')
-            .defaultTo(knex.fn.now())
+            .defaultTo(knex.fn.now());
+        
+        tbl.specificType('healtLabels');
+        
 
     })
 };
