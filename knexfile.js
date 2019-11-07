@@ -4,6 +4,7 @@ const localPgConnection = {
     user: 'admin',
     password: 'password'
   }
+  
 const prodDbConnection = process.env.DATABASE_URL || localPgConnection;
 
 

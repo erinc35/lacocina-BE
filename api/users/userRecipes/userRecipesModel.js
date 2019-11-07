@@ -8,6 +8,9 @@ module.exports = {
             .select(
                 'usersRecipes.recipeId',
                 'recipes.name as RecipeName',
+                'recipes.image as recipeImage',
+                'recipes.calories as calories'
+                
         )
             .where({ userId })
             .join('recipes', 'usersRecipes.recipeId', 'recipes.id')
