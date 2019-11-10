@@ -12,7 +12,8 @@ exports.up = function (knex, Promise) {
         //recipe img url
         tbl
             .string('image', 128)
-            .notNullable();
+            .notNullable()
+            .unique();                    
         //recipe source url
         tbl
             .string('url', 128)
@@ -27,7 +28,7 @@ exports.up = function (knex, Promise) {
             .timestamp('createdAt')
             .defaultTo(knex.fn.now());
         
-        // tbl.specificType('healtLabels');
+        tbl.specificType('healtLabels');
         
 
     })
