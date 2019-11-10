@@ -27,7 +27,7 @@ exports.up = function (knex, Promise) {
             .timestamp('createdAt')
             .defaultTo(knex.fn.now());
         
-        // tbl.specificType('healtLabels');
+        tbl.specificType('healtLabels');
         
 
     })
