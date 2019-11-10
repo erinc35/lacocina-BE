@@ -28,7 +28,8 @@ exports.up = function (knex, Promise) {
             .timestamp('createdAt')
             .defaultTo(knex.fn.now());
         
-        tbl.specificType('healtLabels', 'string');
+        // tbl.specificType('healtLabels', 'string');
+        tbl.string('healtLabels', 128);
         
 
     })
